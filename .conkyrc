@@ -1,0 +1,77 @@
+background true
+double_buffer true
+
+alignment top_right
+
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders false
+draw_graph_borders true
+draw_outline false
+draw_shades false
+
+gap_x 15
+gap_y 60
+net_avg_samples 2
+no_buffers true
+out_to_console false
+out_to_stderr false
+extra_newline false
+
+own_window true
+own_window_type desktop
+own_window_transparent true
+own_window_colour 000000
+own_window_argb_visual true
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+minimum_size 250 0
+maximum_width 250
+stippled_borders 0
+update_interval 2.0
+uppercase false
+use_spacer none
+
+show_graph_scale false
+show_graph_range false
+
+use_xft true
+xftalpha 0.1
+xftfont Droid Sans:size=11 
+color0 778899
+color1 EAEAEA
+color2 FFFDD0
+color3 f4ff2f
+color4 0CFF00
+color5 ff0000
+color6 cc5500
+
+TEXT
+${color0}${alignc}S Y S T E M    I N F O
+${hr}
+${color0}${alignc}${time %a %d %b %Y %R}
+${color0}${alignc}uptime ${uptime}
+${color4}${alignc}${battery_time BAT0}
+${color0}${hr}
+${color2}cpu${alignr}${cpu cpu0}%
+${color2}temp${alignr}${execi 1 sensors | grep "Core 0:" | cut -d+ -f2 | cut -c1-7}
+${color2}freq${alignr}${freq_g}GHz
+${color2}load${alignr}${loadavg}
+${color2}fan speed${alignr}${ibm_fan} rpm
+${color0}${hr}
+${color2}root / boot${alignr}${fs_free /root} / ${fs_free /boot}
+${color2}home${alignr}${fs_free /home}
+${color2}ram${alignr}${mem}
+${color2}swap${alignr}${swap}
+${color0}${hr}
+${color0}${wireless_essid wlp3s0}${alignr}${wireless_link_qual_perc wlp3s0}%
+${color2}lan${color2}${alignr}${addr wlp3s0}
+${color2}wan${alignr}${execi 60 curl ipinfo.io/ip | cut -c1-16}
+${color2}vpn${if_up tun0} up${else} down$endif${color6}${alignr}${addr tun0}
+
+${color2}download ${color2}${alignr}${downspeedf wlp3s0} KiB/s
+${color2}upload ${color2}${alignr}${upspeedf wlp3s0} KiB/s
+
