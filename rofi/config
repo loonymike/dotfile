@@ -1,0 +1,7 @@
+rofi.theme: /usr/share/rofi/themes/solarized.rasi
+
+! "Enabled modi" Set from: Default
+rofi.modi: window,run,drun,combi,ssh
+rofi.sidebar-mode: true
+
+

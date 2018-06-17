@@ -1,0 +1,12 @@
+terminal
+set colorscheme jungle
+set colorscheme snow
+set colorscheme solarized
+cd 
+qopen_with 
+wq
+open_with evince
+open_with 
+
+open_with q
+open_with w3mdisplay
