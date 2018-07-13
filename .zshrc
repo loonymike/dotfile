@@ -1,27 +1,20 @@
-export TERM="xterm-256color"
-EDITOR=vim
-
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/git-repos/.oh-my-zsh
+  export ZSH="/home/mike/.oh-my-zsh"
 
-
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
-ZSH_THEME="half-life"
-#ZSH_THEME=pygmalion
-#ZSH_THEME="bullet-train"
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-#ZSH_THEME=random
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="re5et"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
 # An empty array have no effect
-#ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -43,7 +36,7 @@ ZSH_THEME="half-life"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -65,7 +58,6 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-
 plugins=(
   git
 )
@@ -79,14 +71,37 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# add this configuration to ~/.zshrc
-export HISTFILE=~/.zsh_history  # ensure history file visibility
-export HH_CONFIG=hicolor        # get more colors
-bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
-# If not running interactively, don't do anything
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias backupg="rclone sync ~/Documents/foo1.txt google:foo -v"
+# alias backupb="rclone sync ~/Documents/foo1.txt box:foo -v"
+alias sync="rclone sync google:foo box:foo -v"
+alias ipv6="ip addr show dev wlp3s0 | sed -e's/^.*inet6 \([^ ]*\)\/.*$/\1/;t;d'"
+alias suspend="systemctl suspend"
+alias halt="shutdown now"
+alias update="sudo pacman -Syu"
 
-#[ -n "$XTERM_VERSION" ] && transset-df -a --min .95 >/dev/null
+
+
+export HISTFILE=~/.zsh_history   # ensure history file visibility
+export HH_CONFIG=hicolor         # get more colors
+bindkey -s "\C-r" "\eqhh\n"      # bind hh to Ctrl-r (for Vi mode check doc)
